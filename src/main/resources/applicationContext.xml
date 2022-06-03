@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" ?>
+
+<beans>
+  <bean id="fruitDAO" class="com.atguigu.fruit.dao.impl.FruitDAOImpl"/>
+  <bean id="fruitService" class="com.atguigu.fruit.service.impl.FruitServiceImpl">
+    <!-- property标签用来表示属性: name表示属性名; ref表示引用其他bean的id值-->
+    <property name="fruitDAO" ref="fruitDAO"/>
+  </bean>
+  <!--  这个bean标签的作用是 将来servletPath中设计的名字对应的是fruit，那么就要FruitController来进行处理-->
+  <bean id="fruit" class="com.atguigu.controllers.FruitController">
+    <property name="fruitService" ref="fruitService"/>
+  </bean>
+
+</beans>
+  <!--
+  1. 概念
+  HTML: 超文本标记语言
+  XML: 可扩展的标记语言
+  HTML 是 XML 的一个子集
+
+  2. XML包含三个部分:
+  1) XML声明，而且声明这一行代码必须在XML文件的第一行
+  2) DTD (Document Type Definition) 文档类型定义
+  3) XML正文
+  -->
