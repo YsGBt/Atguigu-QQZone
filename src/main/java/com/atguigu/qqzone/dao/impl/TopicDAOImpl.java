@@ -11,7 +11,14 @@ public class TopicDAOImpl extends BaseDAO<Topic> implements TopicDAO {
 
   @Override
   public List<Topic> getTopicList(Connection conn, UserBasic userBasic) {
-    return null;
+    String sql = "select id, title, content, topicDate, author authorId from t_topic where author = ?";
+    List<Topic> topics = getBeanList(conn, sql, userBasic.getId());
+
+    for (Topic topic : topics) {
+      topic.setAuthor(userBasic);
+    }
+
+    return topics;
   }
 
   @Override
@@ -21,7 +28,7 @@ public class TopicDAOImpl extends BaseDAO<Topic> implements TopicDAO {
 
   @Override
   public boolean deleteTopic(Connection conn, Topic topic) {
-    return false;
+    return deleteTopic(conn, topic.getId());
   }
 
   @Override

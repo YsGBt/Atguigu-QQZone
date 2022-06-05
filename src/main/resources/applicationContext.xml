@@ -1,15 +1,30 @@
-<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf8" ?>
+
+<!DOCTYPE beans [
+  <!ELEMENT beans (bean*)>
+  <!ELEMENT bean (property*)>
+  <!ELEMENT property (#PCDATA)>
+
+  <!ATTLIST bean id ID #REQUIRED>
+  <!ATTLIST bean class CDATA #IMPLIED>
+  <!ATTLIST property name CDATA #IMPLIED>
+  <!ATTLIST property ref IDREF #IMPLIED>
+  ]>
 
 <beans>
-  <bean id="fruitDAO" class="com.atguigu.fruit.dao.impl.FruitDAOImpl"/>
-  <bean id="fruitService" class="com.atguigu.fruit.service.impl.FruitServiceImpl">
-    <!-- property标签用来表示属性: name表示属性名; ref表示引用其他bean的id值-->
-    <property name="fruitDAO" ref="fruitDAO"/>
+  <bean id="userBasicDAO" class="com.atguigu.qqzone.dao.impl.UserBasicDAOImpl"/>
+  <bean id="topicDAO" class="com.atguigu.qqzone.dao.impl.TopicDAOImpl"/>
+  <bean id="userBasicService" class="com.atguigu.qqzone.service.impl.UserBasicServiceImpl">
+    <property name="userBasicDAO" ref="userBasicDAO"/>
   </bean>
-  <!--  这个bean标签的作用是 将来servletPath中设计的名字对应的是fruit，那么就要FruitController来进行处理-->
-  <bean id="fruit" class="com.atguigu.controllers.FruitController">
-    <property name="fruitService" ref="fruitService"/>
+  <bean id="topicService" class="com.atguigu.qqzone.service.impl.TopicServiceImpl">
+    <property name="topicDAO" ref="topicDAO"/>
   </bean>
+  <bean id="user" class="com.atguigu.qqzone.controller.UserController">
+    <property name="userBasicService" ref="userBasicService"/>
+    <property name="topicService" ref="topicService"/>
+  </bean>
+  <bean id="page" class="com.atguigu.myssm.myspringmvc.PageController"/>
 
 </beans>
   <!--

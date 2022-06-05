@@ -9,7 +9,7 @@ public class UserBasic implements Serializable {
   private static final long serialVersionUID = 73L;
 
   private Integer id;
-  private String longinId;
+  private String loginId;
   private String nickName;
   private String pwd;
   private String headImg;
@@ -29,12 +29,12 @@ public class UserBasic implements Serializable {
     this.id = id;
   }
 
-  public String getLonginId() {
-    return longinId;
+  public String getLoginId() {
+    return loginId;
   }
 
-  public void setLonginId(String longinId) {
-    this.longinId = longinId;
+  public void setLoginId(String loginId) {
+    this.loginId = loginId;
   }
 
   public String getNickName() {
@@ -89,7 +89,7 @@ public class UserBasic implements Serializable {
   public String toString() {
     return "UserBasic{" +
         "id=" + id +
-        ", longinId='" + longinId + '\'' +
+        ", loginId='" + loginId + '\'' +
         ", nickName='" + nickName + '\'' +
         ", pwd='" + pwd + '\'' +
         ", headImg='" + headImg + '\'' +

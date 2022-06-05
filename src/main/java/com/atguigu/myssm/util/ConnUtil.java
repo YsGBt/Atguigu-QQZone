@@ -54,8 +54,8 @@ public class ConnUtil {
     Connection conn = threadLocal.get();
     if (conn != null && !conn.isClosed()) {
       conn.close();
-      threadLocal.remove();
     }
+    threadLocal.remove();
   }
 
   public static void closeDataSource() {

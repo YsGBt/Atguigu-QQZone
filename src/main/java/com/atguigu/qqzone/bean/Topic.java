@@ -13,6 +13,8 @@ public class Topic implements Serializable {
   private String title;
   private String content;
   private Date topicDate;
+
+  private Integer authorId;
   private UserBasic author; // N:1
 
   private List<Reply> replyList; // 1:N
@@ -50,6 +52,14 @@ public class Topic implements Serializable {
 
   public void setTopicDate(Date topicDate) {
     this.topicDate = topicDate;
+  }
+
+  public Integer getAuthorId() {
+    return authorId;
+  }
+
+  public void setAuthorId(Integer authorId) {
+    this.authorId = authorId;
   }
 
   public UserBasic getAuthor() {

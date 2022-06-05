@@ -28,7 +28,7 @@ public class OpenSessionInViewFilter implements Filter {
       e.printStackTrace();
       try {
         TransactionManager.rollback();
-        //System.out.println("回滚事务....");
+//        System.out.println("回滚事务....");
       } catch (SQLException ex) {
         ex.printStackTrace();
       }

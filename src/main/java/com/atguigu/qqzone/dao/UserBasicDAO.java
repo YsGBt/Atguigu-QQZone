@@ -9,6 +9,8 @@ public interface UserBasicDAO {
   // 根据账号和密码获取特定用户信息
   UserBasic getUserBasic(Connection conn, String loginId, String pwd);
 
+  UserBasic getUserBasic(Connection conn, Integer id);
+
   // 获取指定用户的所有好友列表
   List<UserBasic> getUserBasicList(Connection conn, UserBasic userBasic);
 }

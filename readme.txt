@@ -36,10 +36,29 @@
    2) 第二范式: 一张表只表达一层含义 (只描述一件事情)
    3) 第三范式: 表中的每一列和主建都是直接依赖关系，而不是间接依赖
 
+   // 父类: java.util.Date 年月日时分秒毫秒
+   // 子类: java.sql.Date 年月日
+   // 子类: java.sql.Time 时分秒
+
 //////////
 4. 数据库设计的范式和数据库的查询性能很多时候是相悖的，我们需要根据实际的业务情况做一个选择:
    - 查询频次不高的情况下，我们更倾向于提高数据库的设计范式，从而提高存储效率
    - 查询频次较高的情况下，我们更倾向于牺牲数据库的规范度，降低数据库设计的范式，允许特定的冗余，从而提高查询的性能
+
+//////////
+5. QQZone 登录功能实现出现的四个错误:
+  1) JDBC链接URL没修改，用的还是fruitdb
+  2) fid as id
+  3) rsmd.getColumnName() 和 rsmd.getColumnLable()
+  4) Can not set com.atguigu.qqzone.bean.UserBasic field com.atguigu.qqzone.bean.Topic.author to java.lang.Integer
+  5) left.html页面没有样式，同时数据也不展示。原因是: 我们是直接去请求的静态页面资源，那么并没有执行super.processTemplate(),
+     也就是thymeleaf没有起作用
+     解决方法:
+     - 新增PageController，添加page方法:
+     public String page(String page) {
+         return page; // frames/left
+     }
+     目的是执行super.processTemplate()方法，让thymeleaf生效
 
 
 
