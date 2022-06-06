@@ -42,4 +42,15 @@ public class UserBasicServiceImpl implements UserBasicService {
       throw new RuntimeException("UserBasicService Failure: getFriendList");
     }
   }
+
+  @Override
+  public UserBasic getUserBasicById(Integer id) {
+    try {
+      Connection conn = ConnUtil.getConnection();
+      UserBasic userBasic = userBasicDAO.getUserBasic(conn, id);
+      return userBasic;
+    } catch (SQLException e) {
+      throw new RuntimeException("UserBasicService Failure: getUserBasicById");
+    }
+  }
 }

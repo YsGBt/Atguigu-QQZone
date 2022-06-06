@@ -108,7 +108,8 @@ public abstract class OldBaseDAO<T> {
     return "java.lang.Integer".equals(typeName)
         || "java.lang.String".equals(typeName)
         || "java.util.Date".equals(typeName)
-        || "java.sql.Date".equals(typeName);
+        || "java.sql.Date".equals(typeName)
+        || "java.lang.Double".equals(typeName);
   }
 
   private static boolean isMyType(String typeName) {

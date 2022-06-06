@@ -33,11 +33,15 @@ public class TopicDAOImpl extends BaseDAO<Topic> implements TopicDAO {
 
   @Override
   public boolean deleteTopic(Connection conn, Integer id) {
-    return false;
+    String sql = "delete from t_topic where id = ?";
+    int count = update(conn, sql, id);
+    return count == 1;
   }
 
   @Override
   public Topic getTopicById(Connection conn, Integer id) {
-    return null;
+    String sql = "select id, title, content, topicDate, author authorId from t_topic where id = ?";
+    Topic topic = getBean(conn, sql, id);
+    return topic;
   }
 }

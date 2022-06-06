@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
@@ -9,7 +9,7 @@
 <body>
 <div id="div0">
   <div id="div_top">
-    <iframe height="118px" src="frames/top.html" width="100%" frameborder="no"></iframe>
+    <iframe height="118px" th:src="@{/page.do?operate=page&page=frames/top}" width="100%" frameborder="no"></iframe>
   </div>
   <div id="div_left">
     <iframe th:src="@{/page.do?operate=page&page=frames/left}" width="100%" frameborder="no"

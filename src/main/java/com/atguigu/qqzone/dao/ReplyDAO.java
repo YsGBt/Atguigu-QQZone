@@ -18,4 +18,6 @@ public interface ReplyDAO {
 
   boolean deleteReply(Connection conn, Integer id);
 
+  // 根据id获取指定的Reply
+  Reply getReply(Connection conn, Integer id);
 }

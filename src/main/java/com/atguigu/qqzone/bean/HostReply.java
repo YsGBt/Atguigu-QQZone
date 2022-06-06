@@ -11,6 +11,11 @@ public class HostReply implements Serializable {
   private Integer id;
   private String content;
   private Date hostReplyDate;
+
+  private Integer authorId;
+
+  private Integer replyId;
+
   private UserBasic author; // N:1
   private Reply reply; // 1:1
 
@@ -55,6 +60,22 @@ public class HostReply implements Serializable {
 
   public void setReply(Reply reply) {
     this.reply = reply;
+  }
+
+  public Integer getAuthorId() {
+    return authorId;
+  }
+
+  public void setAuthorId(Integer authorId) {
+    this.authorId = authorId;
+  }
+
+  public Integer getReplyId() {
+    return replyId;
+  }
+
+  public void setReplyId(Integer replyId) {
+    this.replyId = replyId;
   }
 
   @Override

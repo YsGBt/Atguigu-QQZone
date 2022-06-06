@@ -23,11 +23,31 @@ public class UserController {
       userBasic.setFriendList(friendList);
       userBasic.setTopicList(topicList);
 
+      // userBasic 保存的是登录者信息
+      // friend 保存的是当前进入的是谁的空间
       session.setAttribute("userBasic", userBasic);
+      session.setAttribute("friend", userBasic);
 
       return "index";
     } else {
       return "login";
+    }
+  }
+
+  public String friend(Integer id, HttpSession session) {
+    // 1. 根据id获取指定的用户信息
+    UserBasic currentFriend = userBasicService.getUserBasicById(id);
+
+    if (currentFriend != null) {
+      List<Topic> topicList = topicService.getTopicList(currentFriend);
+
+      currentFriend.setTopicList(topicList);
+
+      session.setAttribute("friend", currentFriend);
+
+      return "index";
+    } else {
+      return "error";
     }
   }
 }

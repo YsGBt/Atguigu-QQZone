@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
   <title>Title</title>
@@ -12,7 +12,9 @@
   <ul>
     <li th:if="${#lists.isEmpty(session.userBasic.friendList)}">一个好友也没有</li>
     <li th:unless="${#lists.isEmpty(session.userBasic.friendList)}"
-        th:each="friend : ${session.userBasic.friendList}" th:text="${friend.nickName}"></li>
+        th:each="friend : ${session.userBasic.friendList}">
+      <a th:href="@{/user.do(operate='friend', id=${friend.id})}" th:text="${friend.nickName}" target="_top"></a>
+    </li>
   </ul>
 </div>
 </body>
