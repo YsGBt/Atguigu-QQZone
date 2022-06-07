@@ -19,8 +19,7 @@ public class ConnUtil {
     InputStream is = null;
     try {
       Properties pros = new Properties();
-      // 这里用JDBCUtil.class.getClassLoader()才能保证在服务器端依旧可以找到配置文件
-      is = JDBCUtil.class.getClassLoader().getResourceAsStream(
+      is = ConnUtil.class.getClassLoader().getResourceAsStream(
           "druid.properties");
       pros.load(is);
       source = DruidDataSourceFactory.createDataSource(pros);

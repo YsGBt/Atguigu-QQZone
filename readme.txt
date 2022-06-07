@@ -230,4 +230,10 @@
           1. 解析IOC的配置文件，创建一个一个的组件，并完成组件之间依赖关系的注入
           2. 将IOC容器保存到application作用域
 
+//////////
+17. 修改BaseDAO，让其支持properties文件以及druid数据连接池
+    讲解了两种方式:
+    1) 直接自己配置properties，然后读取，然后加载驱动
+    2) 使用druid连接池技术，那么properties中的key是有要求的
+
 

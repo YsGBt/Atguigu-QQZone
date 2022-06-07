@@ -10,7 +10,7 @@ import java.util.Properties;
 import javax.sql.DataSource;
 
 /**
- * 实现JDBC对数据库操作的工具类
+ * 实现JDBC对数据库操作的工具类,仅在测试使用,web项目中使用的是ConnUtil
  */
 public abstract class JDBCUtil {
 
